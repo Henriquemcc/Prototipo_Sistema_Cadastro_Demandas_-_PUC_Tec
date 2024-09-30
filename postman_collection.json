@@ -297,6 +297,134 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GET startups",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/startups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"startups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET startup 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/startups/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"startups",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST startup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"razaoSocial\": \"Empresa do Malvado Doofenshmirtz\",\r\n    \"cnpj\": \"04.993.207/0001-65\",\r\n    \"rodada\": {\r\n        \"ano\": 2024,\r\n        \"semestre\": 2 \r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/startups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"startups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT startup",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"razaoSocial\": \"Doofenshmirtz Evil Inc\",\r\n    \"cnpj\": \"04.993.207/0001-63\",\r\n    \"rodada\": {\r\n        \"ano\": 2020,\r\n        \"semestre\": 1 \r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/startups/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"startups",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE startup 1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/startups/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"startups",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

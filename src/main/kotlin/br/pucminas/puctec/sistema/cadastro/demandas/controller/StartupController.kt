@@ -1,7 +1,10 @@
 package br.pucminas.puctec.sistema.cadastro.demandas.controller
 
+import br.pucminas.puctec.sistema.cadastro.demandas.dto.NovaStartupForm
+import br.pucminas.puctec.sistema.cadastro.demandas.dto.StartupView
 import br.pucminas.puctec.sistema.cadastro.demandas.model.Startup
 import br.pucminas.puctec.sistema.cadastro.demandas.service.StartupService
+import br.pucminas.puctec.sistema.cadastro.demandas.service.StartupViewService
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -14,32 +17,32 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/startups")
 class StartupController (
-    private val startupService: StartupService
+    private val startupViewService: StartupViewService
 ) {
 
     @GetMapping
-    fun listar(): List<Startup> {
-        return startupService.listar()
+    fun listar(): List<StartupView> {
+        return startupViewService.listar()
     }
 
     @GetMapping("/{id}")
-    fun buscarPorId(@PathVariable id: Long): Startup {
-        return startupService.buscarPorId(id)
+    fun buscarPorId(@PathVariable id: Long): StartupView {
+        return startupViewService.buscarPorId(id)
     }
 
     @PostMapping
-    fun cadastrar(@RequestBody startup: Startup) {
-        startupService.cadastrar(startup)
+    fun cadastrar(@RequestBody form: NovaStartupForm) {
+        startupViewService.cadastrar(form)
     }
 
     @PutMapping("/{idStartup}")
-    fun atualizar(@RequestBody startup: Startup, @PathVariable idStartup: Long) {
-        startupService.atualizar(startup, idStartup)
+    fun atualizar(@RequestBody form: NovaStartupForm, @PathVariable idStartup: Long) {
+        startupViewService.atualizar(form, idStartup)
     }
 
     @DeleteMapping("/{id}")
     fun deletar(@PathVariable id: Long) {
-        startupService.deletar(id)
+        startupViewService.deletar(id)
     }
 
 }

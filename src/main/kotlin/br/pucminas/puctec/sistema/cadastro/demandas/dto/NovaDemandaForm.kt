@@ -2,7 +2,7 @@ package br.pucminas.puctec.sistema.cadastro.demandas.dto
 
 import java.time.LocalDateTime
 
-class NovaDemandaForm (
+data class NovaDemandaForm (
     val titulo: String,
     val descricao: String,
     val idAlunos: List<Long>,

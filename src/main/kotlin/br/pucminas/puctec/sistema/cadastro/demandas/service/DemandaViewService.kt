@@ -4,7 +4,9 @@ import br.pucminas.puctec.sistema.cadastro.demandas.dto.DemandaView
 import br.pucminas.puctec.sistema.cadastro.demandas.dto.NovaDemandaForm
 import br.pucminas.puctec.sistema.cadastro.demandas.mapper.DemandaFormMapper
 import br.pucminas.puctec.sistema.cadastro.demandas.mapper.DemandaViewMapper
+import org.springframework.stereotype.Service
 
+@Service
 class DemandaViewService (
     private val demandaService: DemandaService,
     private val demandaViewMapper: DemandaViewMapper,

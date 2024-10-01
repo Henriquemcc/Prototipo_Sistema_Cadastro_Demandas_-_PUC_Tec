@@ -4,7 +4,9 @@ import br.pucminas.puctec.sistema.cadastro.demandas.dto.NovaStartupForm
 import br.pucminas.puctec.sistema.cadastro.demandas.dto.StartupView
 import br.pucminas.puctec.sistema.cadastro.demandas.mapper.StartupFormMapper
 import br.pucminas.puctec.sistema.cadastro.demandas.mapper.StartupsViewMapper
+import org.springframework.stereotype.Service
 
+@Service
 class StartupViewService (
     private val startupService: StartupService,
     private val startupsViewMapper: StartupsViewMapper,

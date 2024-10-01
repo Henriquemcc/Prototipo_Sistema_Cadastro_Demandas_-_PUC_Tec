@@ -1,34 +1,33 @@
 package br.pucminas.puctec.sistema.cadastro.demandas.service
 
 import br.pucminas.puctec.sistema.cadastro.demandas.model.Demanda
+import br.pucminas.puctec.sistema.cadastro.demandas.repository.DemandaRepository
 import org.springframework.stereotype.Service
 
 @Service
-class DemandaService (private val demandas: MutableList<Demanda> = mutableListOf()) {
+class DemandaService (private val repository: DemandaRepository) {
 
     fun listar(): List<Demanda> {
-        return demandas
+        return repository.findAll()
     }
 
     fun buscarPorId(id: Long): Demanda {
-        return demandas.first {
-            d -> d.id == id
-        }
+        return repository.getReferenceById(id)
     }
 
     fun cadastrar(demanda: Demanda) {
-        demandas.add(demanda)
+        repository.save(demanda)
     }
 
     fun atualizar(demanda: Demanda, id: Long) {
-        val demandaRemovida = demandas.first { d -> d.id == id }
-        demandas.remove(demandaRemovida)
-        demandas.add(demanda)
+        val demandaRemovida = repository.getReferenceById(id)
+        repository.delete(demandaRemovida)
+        repository.save(demanda)
     }
 
     fun deletar(id: Long) {
-        val demandaRemovida = demandas.first { d -> d.id == id }
-        demandas.remove(demandaRemovida)
+        val demandaRemovida = repository.getReferenceById(id)
+        repository.delete(demandaRemovida)
     }
 
 }

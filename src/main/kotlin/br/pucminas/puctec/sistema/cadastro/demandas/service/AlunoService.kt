@@ -1,33 +1,33 @@
 package br.pucminas.puctec.sistema.cadastro.demandas.service
 
 import br.pucminas.puctec.sistema.cadastro.demandas.model.Aluno
+import br.pucminas.puctec.sistema.cadastro.demandas.repository.AlunoRepository
+import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Service
 
 @Service
-class AlunoService(private val alunos: MutableList<Aluno> = mutableListOf()) {
+class AlunoService(private val alunosRepository: AlunoRepository) {
 
     fun listar(): List<Aluno> {
-        return alunos
+        return alunosRepository.findAll()
     }
 
     fun buscarPorId(id: Long): Aluno {
-        return alunos.first {
-            a -> a.id == id
-        }
+        return alunosRepository.getReferenceById(id)
     }
 
     fun cadastrar(aluno: Aluno) {
-        alunos.add(aluno)
+        alunosRepository.save(aluno)
     }
 
     fun atualizar(aluno: Aluno, id: Long) {
-        val alunoRemovido = alunos.first { a -> a.id == id }
-        alunos.remove(alunoRemovido)
-        alunos.add(aluno)
+        val alunoRemovido = alunosRepository.getReferenceById(id)
+        alunosRepository.delete(alunoRemovido)
+        alunosRepository.save(aluno)
     }
 
     fun deletar(id: Long) {
-        val alunoRemovido = alunos.first { a -> a.id == id }
-        alunos.remove(alunoRemovido)
+        val alunoRemovido = alunosRepository.getReferenceById(id)
+        alunosRepository.delete(alunoRemovido)
     }
 }

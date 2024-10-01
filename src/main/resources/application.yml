@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: sistema.cadastro.demandas
+  sql:
+    init:
+      mode: always
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/forum
+    username: 'myuser'
+    password: 'secret'
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
+#    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true

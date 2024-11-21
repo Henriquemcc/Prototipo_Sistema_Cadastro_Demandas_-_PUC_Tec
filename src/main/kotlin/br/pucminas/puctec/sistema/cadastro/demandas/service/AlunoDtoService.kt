@@ -7,7 +7,7 @@ import br.pucminas.puctec.sistema.cadastro.demandas.mapper.AlunoViewMapper
 import org.springframework.stereotype.Service
 
 @Service
-class AlunoViewService(
+class AlunoDtoService(
     private val alunoService: AlunoService,
     private val alunoViewMapper: AlunoViewMapper,
     private val alunoFormMapper: AlunoFormMapper

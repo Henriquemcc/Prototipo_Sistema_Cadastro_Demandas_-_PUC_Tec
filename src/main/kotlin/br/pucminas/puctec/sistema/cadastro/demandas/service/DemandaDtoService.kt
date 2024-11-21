@@ -7,7 +7,7 @@ import br.pucminas.puctec.sistema.cadastro.demandas.mapper.DemandaViewMapper
 import org.springframework.stereotype.Service
 
 @Service
-class DemandaViewService (
+class DemandaDtoService (
     private val demandaService: DemandaService,
     private val demandaViewMapper: DemandaViewMapper,
     private val demandaFormMapper: DemandaFormMapper

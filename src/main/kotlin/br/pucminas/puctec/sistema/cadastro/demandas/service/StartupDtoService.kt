@@ -7,7 +7,7 @@ import br.pucminas.puctec.sistema.cadastro.demandas.mapper.StartupsViewMapper
 import org.springframework.stereotype.Service
 
 @Service
-class StartupViewService (
+class StartupDtoService (
     private val startupService: StartupService,
     private val startupsViewMapper: StartupsViewMapper,
     private val startupFormMapper: StartupFormMapper,

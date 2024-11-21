@@ -2,9 +2,7 @@ package br.pucminas.puctec.sistema.cadastro.demandas.controller
 
 import br.pucminas.puctec.sistema.cadastro.demandas.dto.NovaStartupForm
 import br.pucminas.puctec.sistema.cadastro.demandas.dto.StartupView
-import br.pucminas.puctec.sistema.cadastro.demandas.model.Startup
-import br.pucminas.puctec.sistema.cadastro.demandas.service.StartupService
-import br.pucminas.puctec.sistema.cadastro.demandas.service.StartupViewService
+import br.pucminas.puctec.sistema.cadastro.demandas.service.StartupDtoService
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -17,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/startups")
 class StartupController (
-    private val startupViewService: StartupViewService
+    private val startupViewService: StartupDtoService
 ) {
 
     @GetMapping

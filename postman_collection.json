@@ -58,7 +58,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"João da Silva\",\r\n    \"matricula\": \"000000\",\r\n    \"cpf\": \"143.431.390-50\",\r\n    \"curso\": \"Curso Tal\"\r\n}",
+					"raw": "{\r\n    \"nome\": \"João da Silva\",\r\n    \"matricula\": \"000000\",\r\n    \"cpf\": \"143.431.390-50\",\r\n    \"curso\": \"Curso Tal\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -208,7 +208,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"Um Sistema\",\r\n    \"descricao\": \"Blablabla\",\r\n    \"alunos\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nome\": \"José da Silva\",\r\n            \"matricula\": \"555555\",\r\n            \"cpf\": \"123.456.789-90\",\r\n            \"curso\": \"Ciência da Computação\"\r\n        }, {\r\n            \"id\": 2,\r\n            \"nome\": \"John Smith\",\r\n            \"matricula\": \"444444\",\r\n            \"cpf\": \"098.765.432-10\",\r\n            \"curso\": \"Engenharia da Computação\"\r\n        }\r\n        ],\r\n    \"startup\": {\r\n        \"id\": 1,\r\n        \"razaoSocial\": \"Empresa do Malvado Doofenshmirtz\",\r\n        \"cnpj\": \"04.993.207/0001-65\",\r\n        \"rodada\": {\r\n           \"ano\": 2024,\r\n           \"semestre\": 2 \r\n        }\r\n    },\r\n    \"dataCriacao\": \"0002-01-01T00:00:00\",\r\n    \"dataEntrega\": \"2024-09-30T23:59:59\"\r\n}",
+					"raw": "{\r\n    \"titulo\": \"Um Sistema\",\r\n    \"descricao\": \"Blablabla\",\r\n    \"idAlunos\": [1],\r\n    \"idStartup\": 1,\r\n    \"dataEntrega\": \"2024-09-30T23:59:59\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -350,7 +350,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"razaoSocial\": \"Empresa do Malvado Doofenshmirtz\",\r\n    \"cnpj\": \"04.993.207/0001-65\",\r\n    \"rodada\": {\r\n        \"ano\": 2024,\r\n        \"semestre\": 2 \r\n    }\r\n}",
+					"raw": "{\r\n    \"razaoSocial\": \"Empresa do Malvado Doofenshmirtz\",\r\n    \"cnpj\": \"04.993.207/0001-65\",\r\n    \"rodada\": {\r\n        \"ano\": 2024,\r\n        \"semestre\": 2 \r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

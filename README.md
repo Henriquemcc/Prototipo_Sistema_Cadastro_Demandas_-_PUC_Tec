@@ -41,3 +41,6 @@ Para o desenvolvimento deste sistema, foram coletados os seguintes requisitos:
 
 Para o desenvolvimento deste sistema, foi desenvolvido um projeto de banco de dados através do [Diagrama Entidade Relacionamento Estendido (EER)](./docs/Diagrama_Entidade_Relacionamento_Estendido.png), e depois foi construído um projeto [Entidade Relacionamento no MySQL WorkBench](./docs/MySQL_Model.mwb).
 
+## Implementação
+
+Para a implementação deste protótipo, foi utilizado o framework [Spring Boot](https://spring.io/) junto da linguagem de programação [Kotlin](https://kotlinlang.org/). E para o banco de dados, foi utilizado o [MySQL](https://www.mysql.com/). 

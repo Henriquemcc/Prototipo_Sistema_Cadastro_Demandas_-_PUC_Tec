@@ -1,9 +1,7 @@
 package br.pucminas.puctec.sistema.cadastro.demandas.model
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import com.fasterxml.jackson.annotation.JsonIgnore
+import jakarta.persistence.*
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Size
@@ -24,4 +22,8 @@ data class Pessoa(
     @CPF
     var cpf: String,
     var senha: String,
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "pessoa_role", joinColumns = [JoinColumn(name = "pessoa_id")], inverseJoinColumns = [JoinColumn(name="role_id")])
+    val role: List<Role> = mutableListOf()
 )

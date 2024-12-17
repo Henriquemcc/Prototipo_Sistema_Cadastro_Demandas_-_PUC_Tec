@@ -12,5 +12,5 @@ data class Role(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
     @Size(max= 50) @NotNull
-    val nome: String,
+    var nome: String,
 )

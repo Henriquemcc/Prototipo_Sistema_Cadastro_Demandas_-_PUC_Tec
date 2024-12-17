@@ -7,424 +7,137 @@
 	},
 	"item": [
 		{
-			"name": "GET alunos",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/alunos",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"alunos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET aluno 1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/alunos/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"alunos",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST aluno",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nome\": \"João da Silva\",\r\n    \"matricula\": \"000000\",\r\n    \"cpf\": \"143.431.390-50\",\r\n    \"curso\": \"Curso Tal\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Pessoa",
+			"item": [
+				{
+					"name": "POST Pessoa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"John\",\n    \"sobrenome\": \"Doe\",\n    \"telefone\": \"+559999999-9999\",\n    \"email\": \"john.doe@example\",\n    \"cpf\": \"843.676.302-50\",\n    \"senha\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/alunos",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"alunos"
-					],
-					"query": [
-						{
-							"key": "",
-							"value": null,
-							"disabled": true
+				{
+					"name": "GET Pessoas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PUT Aluno 1",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Maria da Silva\",\r\n    \"matricula\": \"999999\",\r\n    \"cpf\": \"143.431.390-50\",\r\n    \"curso\": \"Curso Tal 2\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/alunos/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"alunos",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DELETE Aluno 1",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": 0,\r\n    \"nome\": \"Maria da Silva\",\r\n    \"matricula\": \"999999\",\r\n    \"cpf\": \"143.431.390-50\",\r\n    \"curso\": \"Curso Tal 2\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "GET Pessoa 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"1"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/alunos/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"alunos",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET demandas",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/demandas",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"demandas"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET demanda 1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/demandas/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"demandas",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST demanda",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"titulo\": \"Um Sistema\",\r\n    \"descricao\": \"Blablabla\",\r\n    \"idAlunos\": [1],\r\n    \"idStartup\": 1,\r\n    \"dataEntrega\": \"2024-09-30T23:59:59\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "PUT Pessoa",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"John\",\n    \"sobrenome\": \"Smith\",\n    \"telefone\": \"+559987654-3210\",\n    \"email\": \"john.smith@example\",\n    \"cpf\": \"768.475.102-69\",\n    \"senha\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"1"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/demandas",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"demandas"
-					],
-					"query": [
-						{
-							"key": "",
-							"value": null,
-							"disabled": true
+				{
+					"name": "DELETE Pessoa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"1"
+							]
 						}
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "PUT demanda 1",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"O Sistema\",\r\n    \"descricao\": \"Blablabla Blablabla\",\r\n    \"alunos\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nome\": \"José da Silva\",\r\n            \"matricula\": \"555555\",\r\n            \"cpf\": \"123.456.789-90\",\r\n            \"curso\": \"Ciência da Computação\"\r\n        }, {\r\n            \"id\": 2,\r\n            \"nome\": \"John Smith\",\r\n            \"matricula\": \"444444\",\r\n            \"cpf\": \"098.765.432-10\",\r\n            \"curso\": \"Engenharia de Software\"\r\n        }\r\n        ],\r\n    \"startup\": {\r\n        \"id\": 1,\r\n        \"razaoSocial\": \"Empresa do Malvado Doofenshmirtz\",\r\n        \"cnpj\": \"04.993.207/0001-65\",\r\n        \"rodada\": {\r\n           \"ano\": 2024,\r\n           \"semestre\": 2 \r\n        }\r\n    },\r\n    \"dataCriacao\": \"0002-01-01T00:00:00\",\r\n    \"dataEntrega\": \"2024-09-30T23:59:59\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/demandas/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"demandas",
-						"1"
-					],
-					"query": [
-						{
-							"key": "",
-							"value": null,
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DELETE demanda 1",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/demandas/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"demandas",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET startups",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/startups",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"startups"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET startup 1",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/startups/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"startups",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST startup",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"razaoSocial\": \"Empresa do Malvado Doofenshmirtz\",\r\n    \"cnpj\": \"04.993.207/0001-65\",\r\n    \"rodada\": {\r\n        \"ano\": 2024,\r\n        \"semestre\": 2 \r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/startups",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"startups"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PUT startup",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"razaoSocial\": \"Doofenshmirtz Evil Inc\",\r\n    \"cnpj\": \"04.993.207/0001-63\",\r\n    \"rodada\": {\r\n        \"ano\": 2020,\r\n        \"semestre\": 1 \r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/startups/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"startups",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DELETE startup 1",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/startups/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"startups",
-						"1"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }

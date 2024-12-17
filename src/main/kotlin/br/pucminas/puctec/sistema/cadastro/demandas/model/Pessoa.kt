@@ -14,14 +14,14 @@ data class Pessoa(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
     @Size(max = 100)
-    val nome: String,
+    var nome: String,
     @Size(max = 100)
-    val sobrenome: String,
+    var sobrenome: String,
     @Size(max = 15) @NotNull @NotEmpty
-    val telefone: String,
+    var telefone: String,
     @Size(max = 254) @NotNull @NotEmpty
-    val email: String,
+    var email: String,
     @CPF
-    val cpf: String,
-    val senha: String,
+    var cpf: String,
+    var senha: String,
 )

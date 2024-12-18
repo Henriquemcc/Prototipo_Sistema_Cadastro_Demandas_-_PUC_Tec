@@ -13,9 +13,9 @@ data class Startup(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
     @CNPJ
-    val cnpj: String,
+    var cnpj: String,
     @Size(max = 100)
-    val nome: String,
+    var nome: String,
     @Embedded
-    val rodada: Rodada,
+    var rodada: Rodada,
 )

@@ -13,10 +13,10 @@ data class Demanda(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
     @Size(max = 100)
-    val titulo: String,
-    val descricao: String,
-    val dataEntrega: LocalDateTime,
-    val dataCriacao: LocalDateTime = LocalDateTime.now(),
+    var titulo: String,
+    var descricao: String,
+    var dataEntrega: LocalDateTime,
+    var dataCriacao: LocalDateTime = LocalDateTime.now(),
     @OneToMany
-    val subdemandas: List<Demanda> = mutableListOf()
+    var subdemandas: List<Demanda> = mutableListOf()
 )

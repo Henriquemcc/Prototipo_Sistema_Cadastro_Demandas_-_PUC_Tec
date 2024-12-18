@@ -22,7 +22,6 @@ data class Pessoa(
     @CPF
     var cpf: String,
     var senha: String,
-    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "pessoa_role", joinColumns = [JoinColumn(name = "pessoa_id")], inverseJoinColumns = [JoinColumn(name="role_id")])
     val role: List<Role> = mutableListOf()

@@ -12,9 +12,9 @@ data class Aluno(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
     @Size(max=100)
-    val curso: String,
+    var curso: String,
     @Size(max=10)
-    val matricula: String,
+    var matricula: String,
     @OneToOne
-    val pessoa: Pessoa
+    var pessoa: Pessoa
 )

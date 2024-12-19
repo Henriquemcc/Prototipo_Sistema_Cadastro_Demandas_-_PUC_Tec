@@ -12,5 +12,9 @@ data class Aluno(
     @Size(max=10)
     var matricula: String,
     @OneToOne
-    var pessoa: Pessoa
+    var pessoa: Pessoa,
+    @ManyToOne
+    var area: Area,
+    @OneToOne
+    var professorOrientador: Professor
 )

@@ -1,8 +1,8 @@
 package br.pucminas.puctec.sistema.cadastro.demandas.service
 
+import br.pucminas.puctec.sistema.cadastro.demandas.exception.NotFoundException
 import br.pucminas.puctec.sistema.cadastro.demandas.model.Startup
 import br.pucminas.puctec.sistema.cadastro.demandas.repository.StartupRepository
-import br.pucminas.puctec.sistema.cadastro.demandas.exception.NotFoundException
 import org.springframework.stereotype.Service
 
 @Service

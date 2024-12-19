@@ -805,6 +805,217 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Professor",
+			"item": [
+				{
+					"name": "GET Professores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/professores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Professor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"area\": {\n        \"id\": 1,\n        \"nome\": \"Computação\"\n    },\n    \"pessoa\": {\n        \"id\": 1,\n        \"nome\": \"John\",\n        \"sobrenome\": \"Doe\",\n        \"telefone\": \"+559999999-9999\",\n        \"email\": \"john.doe@example\",\n        \"cpf\": \"843.676.302-50\",\n        \"senha\": \"1234\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/professores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Professor 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/professores/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Funcionario Puc Tec",
+			"item": [
+				{
+					"name": "GET Funcionarios PUC Tec",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/funcionariosPucTec",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionariosPucTec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Funcionario PUC Tec",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pessoa\": {\n        \"id\": 1,\n        \"nome\": \"John\",\n        \"sobrenome\": \"Doe\",\n        \"telefone\": \"+559999999-9999\",\n        \"email\": \"john.doe@example\",\n        \"cpf\": \"843.676.302-50\",\n        \"senha\": \"1234\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/funcionariosPucTec",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionariosPucTec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Funcionario PUC Tec 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/funcionariosPucTec/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionariosPucTec",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Funcionario PUC Tec 1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pessoa\": {\n        \"id\": 1,\n        \"nome\": \"John\",\n        \"sobrenome\": \"Smith\",\n        \"telefone\": \"+559987654-3210\",\n        \"email\": \"john.smith@example\",\n        \"cpf\": \"768.475.102-69\",\n        \"senha\": \"12345\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/funcionariosPucTec/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionariosPucTec",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Funcionario PUC Tec 1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/funcionariosPucTec/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionariosPucTec",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

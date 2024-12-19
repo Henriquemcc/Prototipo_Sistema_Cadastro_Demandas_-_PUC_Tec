@@ -5,4 +5,4 @@ create table demanda (
         descricao text,
         titulo varchar(100),
         primary key (id)
-)
+);

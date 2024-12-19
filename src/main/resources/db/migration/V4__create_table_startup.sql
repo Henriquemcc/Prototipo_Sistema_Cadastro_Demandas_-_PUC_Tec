@@ -5,4 +5,4 @@ create table startup (
     ano integer,
     semestre tinyint,
     primary key (id)
-)
+);

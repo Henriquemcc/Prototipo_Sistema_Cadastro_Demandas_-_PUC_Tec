@@ -5,4 +5,4 @@ create table aluno (
         pessoa_id bigint,
         primary key (id),
         foreign key pessoa_id references pessoa(id)
-)
+);

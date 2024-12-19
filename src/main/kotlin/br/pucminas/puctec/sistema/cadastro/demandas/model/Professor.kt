@@ -14,5 +14,7 @@ data class Professor(
     @ManyToOne
     var area: Area,
     @OneToOne
-    var pessoa: Pessoa
+    var pessoa: Pessoa,
+    @OneToOne
+    var alunoOrientado: Aluno
 )

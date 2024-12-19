@@ -11,5 +11,5 @@ data class Area(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
     @Size(max=100)
-    val nome: String,
+    var nome: String,
 )

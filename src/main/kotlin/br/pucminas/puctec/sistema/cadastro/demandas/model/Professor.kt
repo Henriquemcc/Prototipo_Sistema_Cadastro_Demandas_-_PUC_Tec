@@ -12,7 +12,7 @@ data class Professor(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
     @ManyToOne
-    val area: Area,
+    var area: Area,
     @OneToOne
     var pessoa: Pessoa
 )

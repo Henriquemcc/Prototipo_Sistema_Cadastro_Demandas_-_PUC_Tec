@@ -7,5 +7,5 @@ data class PessoaView(
     val telefone: String,
     var email: String,
     var cpf: String,
-    val role: List<Long>
+    val rolesId: List<Long>
 )

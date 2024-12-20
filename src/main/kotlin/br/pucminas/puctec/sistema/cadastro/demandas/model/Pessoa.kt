@@ -23,5 +23,5 @@ data class Pessoa(
     var senha: String,
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "pessoa_role", joinColumns = [JoinColumn(name = "pessoa_id")], inverseJoinColumns = [JoinColumn(name="role_id")])
-    val role: List<Role> = mutableListOf()
+    val roles: List<Role> = mutableListOf()
 )

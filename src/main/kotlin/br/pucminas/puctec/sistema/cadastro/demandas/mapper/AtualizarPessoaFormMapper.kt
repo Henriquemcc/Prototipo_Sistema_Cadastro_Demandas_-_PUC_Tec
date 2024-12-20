@@ -13,7 +13,7 @@ class AtualizarPessoaFormMapper(
         return Pessoa(
             nome = t.nome,
             sobrenome = t.sobrenome,
-            role = t.role.map {
+            roles = t.rolesId.map {
                 roleService.buscarPorId(it)
             },
             cpf = t.cpf,

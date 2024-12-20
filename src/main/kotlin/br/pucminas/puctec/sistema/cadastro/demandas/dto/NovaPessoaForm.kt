@@ -18,5 +18,5 @@ data class NovaPessoaForm(
     var cpf: String,
     @field:NotNull @field:NotEmpty
     var senha: String,
-    val role: List<Long> = mutableListOf()
+    val rolesId: List<Long> = mutableListOf()
 )

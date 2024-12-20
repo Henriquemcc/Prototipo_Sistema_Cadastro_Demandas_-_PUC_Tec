@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.br.CNPJ
 @Entity
 data class Startup(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long? = null,
     @CNPJ
     var cnpj: String,
     @Size(max = 100)

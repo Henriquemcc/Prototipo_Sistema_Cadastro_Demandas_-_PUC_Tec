@@ -16,13 +16,10 @@ Para o desenvolvimento deste sistema, foram coletados os seguintes requisitos:
 
 ### Funcionais
 
-- Permitir acompanhar e modificar o ciclo de vida e status de uma demanda em um quadro
-  kanban.
+- Permitir acompanhar e modificar o ciclo de vida e status de uma demanda em um quadro kanban.
 - Permitir as startups criarem demandas.
-- Permitir os funcionários do PUC Tec aceitarem, rejeitarem, alterarem (o prazo) ou
-  redirecionarem demandas.
-- Permitir os professores (no caso de TI) aceitarem, rejeitarem, alterarem (o prazo) ou
-  redirecionarem demandas.
+- Permitir os funcionários do PUC Tec aceitarem, rejeitarem, alterarem (o prazo) ou redirecionarem demandas.
+- Permitir os professores (no caso de TI) aceitarem, rejeitarem, alterarem (o prazo) ou redirecionarem demandas.
 - Permitir especificar os tipos de alunos, sem necessidade de alterar o programa.
 - Permitir os alunos entregarem diferentes tipos de entrega (links, comentários, relatórios).
 - Permitir que startups possam especificar o tipo de entrega desejada.
@@ -32,8 +29,7 @@ Para o desenvolvimento deste sistema, foram coletados os seguintes requisitos:
 ### Não Funcionais
 
 - O site do sistema deve poder ser acessado tanto de navegador web de desktop e mobile.
-- O Back-End do sistema deve ser desenvolvido na linguagem de programação Kotlin com o
-  framework Spring Boot.
+- O Back-End do sistema deve ser desenvolvido na linguagem de programação Kotlin com o framework Spring Boot.
 - O Front-End do sistema dever ser desenvolvido utilizando a linguagem de programação TypeScript e os frameworks React e Tailwind CSS.
 - O banco de dados utilizado pelo Back-End será definido em breve.
 

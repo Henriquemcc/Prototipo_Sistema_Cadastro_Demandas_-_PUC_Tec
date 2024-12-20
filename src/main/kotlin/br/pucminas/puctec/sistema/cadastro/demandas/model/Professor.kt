@@ -4,6 +4,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.ManyToMany
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.OneToOne
 
@@ -15,6 +16,6 @@ data class Professor(
     var area: Area,
     @OneToOne
     var pessoa: Pessoa,
-    @OneToOne
-    var alunoOrientado: Aluno
+    @ManyToMany(mappedBy = "professoresOrientadores")
+    var alunosOrientados: List<Aluno> = mutableListOf()
 )

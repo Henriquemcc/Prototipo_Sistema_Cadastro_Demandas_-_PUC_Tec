@@ -4,5 +4,5 @@ data class ProfessorView(
     val id: Long?,
     var areaId: Long?,
     var pessoaId: Long?,
-    var alunoOrientadoId: Long?
+    var alunosOrientadosId: List<Long>
 )

@@ -21,7 +21,7 @@ class AtualizarAlunoFormMapper(
             curso = t.curso,
             matricula = t.matricula,
             pessoa = pessoaService.buscarPorId(t.pessoaId),
-            professorOrientador = professorService.buscarPorId(t.professorOrientadorId),
+            professoresOrientadores = t.professoresOrientadoresId.map { professorService.buscarPorId(it) },
             demandas = t.demandasId.map { demandaService.buscarPorId(it) }
         )
     }

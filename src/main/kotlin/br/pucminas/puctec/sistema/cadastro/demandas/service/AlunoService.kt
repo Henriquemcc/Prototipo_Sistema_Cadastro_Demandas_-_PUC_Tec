@@ -25,7 +25,7 @@ class AlunoService(
         alunoAnterior.curso = aluno.curso
         alunoAnterior.matricula = aluno.matricula
         alunoAnterior.area = aluno.area
-        alunoAnterior.professorOrientador = aluno.professorOrientador
+        alunoAnterior.professoresOrientadores = aluno.professoresOrientadores
         alunoAnterior.demandas = aluno.demandas
         return alunoAnterior
     }

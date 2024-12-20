@@ -9,6 +9,6 @@ data class NovoAlunoForm(
     var matricula: String,
     var pessoaId: Long,
     var areaId: Long,
-    var professorOrientadorId: Long,
+    var professoresOrientadoresId: List<Long>,
     var demandasId: List<Long>
 )

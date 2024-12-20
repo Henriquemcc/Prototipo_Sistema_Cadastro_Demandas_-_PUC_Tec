@@ -22,7 +22,7 @@ class NovoAlunoFormMapper(
             curso = t.curso,
             demandas = t.demandasId.map { demandaService.buscarPorId(it) },
             pessoa = pessoaService.buscarPorId(t.pessoaId),
-            professorOrientador = professorService.buscarPorId(t.professorOrientadorId)
+            professoresOrientadores = t.professoresOrientadoresId.map { professorService.buscarPorId(it) },
         )
     }
 }

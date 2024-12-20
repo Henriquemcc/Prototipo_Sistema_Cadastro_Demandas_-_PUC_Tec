@@ -17,7 +17,7 @@ class NovoProfessorFormMapper(
         return Professor(
             area = areaService.buscarPorId(t.areaId),
             pessoa = pessoaService.buscarPorId(t.pessoaId),
-            alunoOrientado = alunoService.buscarPorId(t.alunoOrientadoId)
+            alunosOrientados = t.alunosOrientadosId.map { alunoService.buscarPorId(it) }
         )
     }
 }

@@ -11,7 +11,7 @@ class ProfessorViewMapper: Mapper<Professor, ProfessorView> {
             id = t.id,
             areaId = t.area.id,
             pessoaId = t.pessoa.id,
-            alunoOrientadoId = t.alunoOrientado.id
+            alunosOrientadosId = t.alunosOrientados.mapNotNull { it.id }
         )
     }
 }

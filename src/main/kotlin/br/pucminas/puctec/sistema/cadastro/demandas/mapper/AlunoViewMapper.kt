@@ -9,7 +9,7 @@ class AlunoViewMapper: Mapper<Aluno, AlunoView> {
     override fun map(t: Aluno): AlunoView {
         return AlunoView(
             id = t.id,
-            professorOrientadorId = t.professorOrientador.id,
+            professoresOrientadoresId = t.professoresOrientadores.mapNotNull { it.id },
             curso = t.curso,
             areaId = t.area.id,
             pessoaId = t.pessoa.id,

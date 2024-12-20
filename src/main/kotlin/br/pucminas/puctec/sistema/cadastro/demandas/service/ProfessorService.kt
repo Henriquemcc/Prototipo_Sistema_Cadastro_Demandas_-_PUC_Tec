@@ -24,7 +24,7 @@ class ProfessorService(
         val professorAnterior = professorRepository.findById(idProfessor).orElseThrow{NotFoundException(notFoundMessage)}
         professorAnterior.pessoa = professor.pessoa
         professorAnterior.area = professor.area
-        professorAnterior.alunoOrientado = professor.alunoOrientado
+        professorAnterior.alunosOrientados = professor.alunosOrientados
         return professorAnterior
     }
 

@@ -15,8 +15,13 @@ data class Aluno(
     var pessoa: Pessoa,
     @ManyToOne
     var area: Area,
-    @OneToOne
-    var professorOrientador: Professor,
+    @ManyToMany
+    @JoinTable(
+        name = "aluno_professores_orientadores",
+        joinColumns = [JoinColumn(name = "aluno_id")],
+        inverseJoinColumns = [JoinColumn(name = "professor_id")]
+    )
+    var professoresOrientadores: List<Professor> = mutableListOf(),
     @ManyToMany
     @JoinTable(
         name = "aluno_demanda",

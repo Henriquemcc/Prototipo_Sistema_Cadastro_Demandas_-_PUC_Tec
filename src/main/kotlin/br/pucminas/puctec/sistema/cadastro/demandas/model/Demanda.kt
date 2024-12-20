@@ -7,7 +7,7 @@ import java.time.LocalDateTime
 @Entity
 data class Demanda(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long? = null,
     @Size(max = 100)
     var titulo: String,
     var descricao: String,

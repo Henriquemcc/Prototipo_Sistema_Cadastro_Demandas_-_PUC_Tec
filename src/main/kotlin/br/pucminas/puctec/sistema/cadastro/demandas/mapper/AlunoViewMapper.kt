@@ -14,7 +14,7 @@ class AlunoViewMapper: Mapper<Aluno, AlunoView> {
             areaId = t.area.id,
             pessoaId = t.pessoa.id,
             matricula = t.matricula,
-            demandasId = t.demandas.map { it.id }
+            demandasId = t.demandas.mapNotNull { it.id }
         )
     }
 }

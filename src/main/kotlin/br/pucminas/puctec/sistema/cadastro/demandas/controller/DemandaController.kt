@@ -1,30 +1,32 @@
 package br.pucminas.puctec.sistema.cadastro.demandas.controller
 
-import br.pucminas.puctec.sistema.cadastro.demandas.model.Demanda
-import br.pucminas.puctec.sistema.cadastro.demandas.service.DemandaService
+import br.pucminas.puctec.sistema.cadastro.demandas.dto.AtualizarDemandaForm
+import br.pucminas.puctec.sistema.cadastro.demandas.dto.DemandaView
+import br.pucminas.puctec.sistema.cadastro.demandas.dto.NovaDemandaForm
+import br.pucminas.puctec.sistema.cadastro.demandas.service.DemandaDtoService
 import jakarta.transaction.Transactional
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/demandas")
 class DemandaController(
-    val demandaService: DemandaService
+    val demandaDtoService: DemandaDtoService
 ) {
     @GetMapping
-    fun listar(): List<Demanda> = demandaService.listar()
+    fun listar(): List<DemandaView> = demandaDtoService.listar()
 
     @GetMapping("/{idDemanda}")
-    fun buscarPorId(@PathVariable idDemanda: Long): Demanda = demandaService.buscarPorId(idDemanda)
+    fun buscarPorId(@PathVariable idDemanda: Long): DemandaView = demandaDtoService.buscarPorId(idDemanda)
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody demanda: Demanda): Demanda = demandaService.cadastrar(demanda)
+    fun cadastrar(@RequestBody demanda: NovaDemandaForm): DemandaView = demandaDtoService.cadastrar(demanda)
 
     @PutMapping("/{idDemanda}")
     @Transactional
-    fun atualizar(@RequestBody demanda: Demanda, @PathVariable idDemanda: Long): Demanda = demandaService.atualizar(demanda, idDemanda)
+    fun atualizar(@RequestBody demanda: AtualizarDemandaForm, @PathVariable idDemanda: Long): DemandaView = demandaDtoService.atualizar(demanda, idDemanda)
 
     @DeleteMapping("/{idDemanda}")
     @Transactional
-    fun deletar(@PathVariable idDemanda: Long) = demandaService.deletar(idDemanda)
+    fun deletar(@PathVariable idDemanda: Long) = demandaDtoService.deletar(idDemanda)
 }

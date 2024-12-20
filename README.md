@@ -60,3 +60,7 @@ No Prompt de Comando, Terminal ou PowerShell do Windows:
 ```
 gradlew bootRun
 ```
+
+## Como testar
+
+Para testar o funcionamento deste programa, instale o [Postman](https://www.postman.com/) e importe a [Postman Collection](postman_collection.json), e realize as requisições desejadas.

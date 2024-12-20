@@ -6,6 +6,6 @@ data class AlunoView(
     var matricula: String,
     var pessoaId: Long?,
     var areaId: Long?,
-    var professorOrientadorId: Long,
+    var professorOrientadorId: Long?,
     var demandasId: List<Long>
 )

@@ -10,7 +10,7 @@ import jakarta.persistence.OneToOne
 @Entity
 data class Professor(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long? = null,
     @ManyToOne
     var area: Area,
     @OneToOne

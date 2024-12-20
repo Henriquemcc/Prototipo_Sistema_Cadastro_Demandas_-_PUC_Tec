@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size
 @Entity
 data class Aluno(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long? = null,
     @Size(max=100)
     var curso: String,
     @Size(max=10)

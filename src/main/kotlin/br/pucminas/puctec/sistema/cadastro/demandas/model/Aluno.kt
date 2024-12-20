@@ -16,5 +16,12 @@ data class Aluno(
     @ManyToOne
     var area: Area,
     @OneToOne
-    var professorOrientador: Professor
+    var professorOrientador: Professor,
+    @ManyToMany
+    @JoinTable(
+        name = "aluno_demanda",
+        joinColumns = [JoinColumn(name = "aluno_id")],
+        inverseJoinColumns = [JoinColumn(name = "demanda_id")]
+    )
+    var demandas: List<Demanda>
 )

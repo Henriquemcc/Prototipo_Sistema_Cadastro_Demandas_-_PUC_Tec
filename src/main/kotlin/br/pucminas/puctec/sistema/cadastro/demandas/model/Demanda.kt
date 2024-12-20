@@ -14,5 +14,7 @@ data class Demanda(
     var dataEntrega: LocalDateTime,
     var dataCriacao: LocalDateTime = LocalDateTime.now(),
     @OneToMany
-    var subdemandas: List<Demanda> = mutableListOf()
+    var subdemandas: List<Demanda> = mutableListOf(),
+    @ManyToMany(mappedBy = "demandas")
+    var alunoResponsavel: List<Aluno> = mutableListOf()
 )

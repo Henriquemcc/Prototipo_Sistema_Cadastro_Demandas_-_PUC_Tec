@@ -13,7 +13,7 @@ class PessoaViewMapper(
         return PessoaView(
             id = t.id,
             nome = t.nome,
-            rolesId = t.roles.map { it.id },
+            rolesId = t.roles.mapNotNull { it.id },
             cpf = t.cpf,
             email = t.email,
             telefone = t.telefone,

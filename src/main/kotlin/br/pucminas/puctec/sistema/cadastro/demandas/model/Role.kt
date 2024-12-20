@@ -10,7 +10,7 @@ import jakarta.validation.constraints.Size
 @Entity
 data class Role(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long? = null,
     @Size(max= 50) @NotNull
     var nome: String,
 )

@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.br.CPF
 @Entity
 data class Pessoa(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long? = null,
     @Size(max = 100)
     var nome: String,
     @Size(max = 100)

@@ -5,7 +5,7 @@ import jakarta.persistence.*
 @Entity
 data class FuncionarioStartup(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long? = null,
     @OneToOne
     var pessoa: Pessoa,
     @ManyToOne

@@ -41,6 +41,13 @@ To develop this system, a database project was developed using the [Extended Ent
 
 To implement this prototype, the [Spring Boot](https://spring.io/) framework was used along with the [Kotlin](https://kotlinlang.org/) programming language. And for the database, [MySQL](https://www.mysql.com/) was used.
 
+## System Requirements
+
+To run this program, is required to have installed the following programs:
+
+- Java Development Kit (version 21 or higher)
+- Docker
+
 ## How to run
 
 To run this program, open a terminal (or command prompt) in the project folder and type the following command:

@@ -41,6 +41,13 @@ Para o desenvolvimento deste sistema, foi desenvolvido um projeto de banco de da
 
 Para a implementação deste protótipo, foi utilizado o framework [Spring Boot](https://spring.io/) junto da linguagem de programação [Kotlin](https://kotlinlang.org/). E para o banco de dados, foi utilizado o [MySQL](https://www.mysql.com/).
 
+## Requisitos de Sistema
+
+Para executar este programa, é necessário ter instalado os seguintes programas:
+
+- Java Development Kit (versão 21 ou superior)
+- Docker
+
 ## Como executar
 
 Para executar este programa, na pasta do projeto abra um terminal (ou prompt de comando) e digite o seguinte comando:

@@ -5,7 +5,7 @@ data class AlunoView(
     var curso: String,
     var matricula: String,
     var pessoaId: Long?,
-    var areaId: Long,
+    var areaId: Long?,
     var professorOrientadorId: Long,
     var demandasId: List<Long>
 )

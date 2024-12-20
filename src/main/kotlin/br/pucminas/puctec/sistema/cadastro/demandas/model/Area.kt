@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Size
 @Entity
 data class Area(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long? = null,
     @Size(max=100)
     var nome: String,
 )

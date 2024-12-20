@@ -10,6 +10,11 @@ data class FuncionarioStartup(
     var pessoa: Pessoa,
     @ManyToOne
     var startup: Startup,
-    @OneToMany
+    @ManyToMany
+    @JoinTable(
+        name = "demanda_funcionarios_startup",
+        joinColumns = [JoinColumn(name = "funcionarios_startup_id")],
+        inverseJoinColumns = [JoinColumn(name = "demanda_id")]
+    )
     val demandas: List<Demanda> = mutableListOf()
 )

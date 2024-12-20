@@ -17,7 +17,8 @@ class DemandaViewMapper(
             descricao = t.descricao,
             subdemandasId = t.subdemandas.mapNotNull { it.id },
             dataCriacao = t.dataCriacao,
-            dataEntrega = t.dataEntrega
+            dataEntrega = t.dataEntrega,
+            funcionariosStartupResponsaveisId = t.funcionariosStartupResponsaveis.mapNotNull { it.id }
         )
     }
 }

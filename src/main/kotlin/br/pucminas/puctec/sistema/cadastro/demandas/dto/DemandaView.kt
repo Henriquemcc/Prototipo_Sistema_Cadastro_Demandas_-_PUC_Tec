@@ -9,5 +9,6 @@ data class DemandaView(
     var dataEntrega: LocalDateTime,
     var dataCriacao: LocalDateTime,
     var subdemandasId: List<Long>,
-    var alunosResponsaveisId: List<Long>
+    var alunosResponsaveisId: List<Long>,
+    var funcionariosStartupResponsaveisId: List<Long>
 )

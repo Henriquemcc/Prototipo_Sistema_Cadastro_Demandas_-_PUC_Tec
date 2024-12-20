@@ -16,5 +16,7 @@ data class Demanda(
     @OneToMany
     var subdemandas: List<Demanda> = mutableListOf(),
     @ManyToMany(mappedBy = "demandas")
-    var alunosResponsaveis: List<Aluno> = mutableListOf()
+    var alunosResponsaveis: List<Aluno> = mutableListOf(),
+    @ManyToMany(mappedBy = "demandas")
+    var funcionariosStartupResponsaveis: List<FuncionarioStartup> = mutableListOf()
 )

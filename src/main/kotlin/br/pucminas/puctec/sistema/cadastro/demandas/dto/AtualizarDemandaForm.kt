@@ -12,5 +12,6 @@ data class AtualizarDemandaForm(
     var descricao: String,
     var dataEntrega: LocalDateTime,
     var subdemandasId: List<Long>,
-    var alunosResponsaveisId: List<Long>
+    var alunosResponsaveisId: List<Long>,
+    var funcionariosStartupResponsaveisId: List<Long>
 )

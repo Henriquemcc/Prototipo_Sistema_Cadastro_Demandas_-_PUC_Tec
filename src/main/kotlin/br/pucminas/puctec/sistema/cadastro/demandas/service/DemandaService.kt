@@ -26,7 +26,7 @@ class DemandaService(
         demandaAnterior.dataCriacao = demanda.dataCriacao
         demandaAnterior.dataEntrega = demanda.dataEntrega
         demandaAnterior.subdemandas = demanda.subdemandas
-        demandaAnterior.alunoResponsavel = demanda.alunoResponsavel
+        demandaAnterior.alunosResponsaveis = demanda.alunosResponsaveis
         return demandaAnterior
     }
 

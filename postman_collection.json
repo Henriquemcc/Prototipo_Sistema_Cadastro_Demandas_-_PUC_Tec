@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\": \"John\",\n    \"sobrenome\": \"Doe\",\n    \"telefone\": \"+559999999-9999\",\n    \"email\": \"john.doe@example\",\n    \"cpf\": \"843.676.302-50\",\n    \"senha\": \"1234\"\n}",
+							"raw": "{\n    \"nome\": \"John\",\n    \"sobrenome\": \"Doe\",\n    \"telefone\": \"+559999999-9999\",\n    \"email\": \"john.doe@example\",\n    \"cpf\": \"843.676.302-50\",\n    \"senha\": \"1234\",\n    \"rolesId\": []\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -95,7 +95,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\": \"John\",\n    \"sobrenome\": \"Smith\",\n    \"telefone\": \"+559987654-3210\",\n    \"email\": \"john.smith@example\",\n    \"cpf\": \"768.475.102-69\",\n    \"senha\": \"12345\"\n}",
+							"raw": "{\n    \"nome\": \"John\",\n    \"sobrenome\": \"Smith\",\n    \"telefone\": \"+559987654-3210\",\n    \"email\": \"john.smith@example\",\n    \"cpf\": \"768.475.102-69\",\n    \"senha\": \"12345\",\n    \"rolesId\": []\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -276,6 +276,40 @@
 			"name": "Startup",
 			"item": [
 				{
+					"name": "POST Startup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cnpj\": \"18.619.306/0001-96\",\n    \"nome\": \"Empresa do Malvado Doofenshmirtz\",\n    \"rodada\": {\n        \"ano\": 2024,\n        \"semestre\": 2\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/startups",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"startups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GET Startups",
 					"request": {
 						"method": "GET",
@@ -309,40 +343,6 @@
 							"path": [
 								"startups",
 								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST Startup",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"cnpj\": \"18.619.306/0001-96\",\n    \"nome\": \"Empresa do Malvado Doofenshmirtz\",\n    \"rodada\": {\n        \"ano\": 2024,\n        \"semestre\": 2\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/startups",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"startups"
 							]
 						}
 					},
@@ -409,6 +409,41 @@
 			"name": "Demanda",
 			"item": [
 				{
+					"name": "POST Demanda",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "\n",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Criação de sistema\",\n    \"descricao\": \"Mais informações em https://empresa.example/algumacoisa/sistema_a_ser_desenvolvido.txt\",\n    \"dataEntrega\": \"2025-01-01T00:00:00\",\n    \"subdemandasId\": [],\n    \"alunosResponsaveisId\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/demandas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"demandas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GET Demandas",
 					"request": {
 						"method": "GET",
@@ -448,41 +483,6 @@
 					"response": []
 				},
 				{
-					"name": "POST Demanda",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": "\n",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"titulo\": \"Criação de sistema\",\n    \"descricao\": \"Mais informações em https://empresa.example/algumacoisa/sistema_a_ser_desenvolvido.txt\",\n    \"dataEntrega\": \"2025-01-01T00:00:00\",\n    \"subdemandas\": []\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/demandas",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"demandas"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "POST Demanda 1",
 					"request": {
 						"method": "PUT",
@@ -496,7 +496,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"titulo\": \"Criação de um site\",\n    \"descricao\": \"Mais informações em https://empresa.example/algumacoisa/site_a_ser_desenvolvido.txt\",\n    \"dataEntrega\": \"2028-01-01T00:00:00\",\n    \"subdemandas\": []\n}",
+							"raw": "{\n    \"titulo\": \"Criação de um site\",\n    \"descricao\": \"Mais informações em https://empresa.example/algumacoisa/site_a_ser_desenvolvido.txt\",\n    \"dataEntrega\": \"2028-01-01T00:00:00\",\n    \"subdemandasId\": [],\n    \"alunosResponsaveisId\": []\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -541,160 +541,8 @@
 			]
 		},
 		{
-			"name": "Aluno",
-			"item": [
-				{
-					"name": "GET Alunos",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/alunos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"alunos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET Aluno 1",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/alunos/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"alunos",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE Aluno 1",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/alunos/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"alunos",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST Aluno",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"curso\": \"Engenharia da Computação\",\n    \"matricula\": \"999999\",\n    \"pessoa\": {\n        \"id\": 1,\n        \"nome\": \"John\",\n        \"sobrenome\": \"Doe\",\n        \"telefone\": \"+559999999-9999\",\n        \"email\": \"john.doe@example\",\n        \"cpf\": \"843.676.302-50\",\n        \"senha\": \"1234\",\n        \"role\": []\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/alunos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"alunos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PUT Aluno Copy",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"curso\": \"Engenharia de Software\",\n    \"matricula\": \"888888\",\n    \"pessoa\": {\n        \"id\": 1,\n        \"nome\": \"John\",\n        \"sobrenome\": \"Smith\",\n        \"telefone\": \"+559987654-3210\",\n        \"email\": \"john.smith@example\",\n        \"cpf\": \"768.475.102-69\",\n        \"senha\": \"12345\",\n        \"role\": []\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/alunos/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"alunos",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Areas",
 			"item": [
-				{
-					"name": "GET Areas",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/areas",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"areas"
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "POST Area",
 					"request": {
@@ -724,6 +572,45 @@
 							"port": "8080",
 							"path": [
 								"areas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Areas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/areas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"areas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Area 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/areas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"areas",
+								"1"
 							]
 						}
 					},
@@ -765,26 +652,6 @@
 					"response": []
 				},
 				{
-					"name": "GET Area 1",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/areas/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"areas",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "DELETE Area 1",
 					"request": {
 						"method": "DELETE",
@@ -807,13 +674,161 @@
 			]
 		},
 		{
-			"name": "Professor",
+			"name": "Aluno",
 			"item": [
 				{
-					"name": "GET Professores",
+					"name": "POST Aluno",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"curso\": \"Engenharia da Computação\",\n    \"matricula\": \"999999\",\n    \"pessoaId\": 1,\n    \"areaId\": 1,\n    \"professoresOrientadoresId\": [],\n    \"demandasId\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/alunos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Alunos",
 					"request": {
 						"method": "GET",
 						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/alunos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Aluno 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/alunos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Aluno 1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"curso\": \"Engenharia de Software\",\n    \"matricula\": \"888888\",\n    \"pessoaId\": 2 ,\n    \"areaId\": 1,\n    \"professoresOrientadoresId\": [],\n    \"demandasId\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/alunos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Aluno 1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/alunos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"alunos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Professor",
+			"item": [
+				{
+					"name": "POST Professor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"areaId\": 1,\n    \"pessoaId\": 1,\n    \"alunosOrientadosId\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8080/professores",
 							"protocol": "http",
@@ -829,25 +844,10 @@
 					"response": []
 				},
 				{
-					"name": "POST Professor",
+					"name": "GET Professores",
 					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"area\": {\n        \"id\": 1,\n        \"nome\": \"Computação\"\n    },\n    \"pessoa\": {\n        \"id\": 1,\n        \"nome\": \"John\",\n        \"sobrenome\": \"Doe\",\n        \"telefone\": \"+559999999-9999\",\n        \"email\": \"john.doe@example\",\n        \"cpf\": \"843.676.302-50\",\n        \"senha\": \"1234\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
+						"method": "GET",
+						"header": [],
 						"url": {
 							"raw": "http://localhost:8080/professores",
 							"protocol": "http",
@@ -881,6 +881,61 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "PUT Professor 1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"areaId\": 2,\n    \"pessoaId\": 2,\n    \"alunosOrientadosId\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/professores/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Professor 1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/professores/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"professores",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -888,10 +943,25 @@
 			"name": "Funcionario Puc Tec",
 			"item": [
 				{
-					"name": "GET Funcionarios PUC Tec",
+					"name": "POST Funcionario PUC Tec",
 					"request": {
-						"method": "GET",
-						"header": [],
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pessoaId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8080/funcionariosPucTec",
 							"protocol": "http",
@@ -907,25 +977,10 @@
 					"response": []
 				},
 				{
-					"name": "POST Funcionario PUC Tec",
+					"name": "GET Funcionarios PUC Tec",
 					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"pessoa\": {\n        \"id\": 1,\n        \"nome\": \"John\",\n        \"sobrenome\": \"Doe\",\n        \"telefone\": \"+559999999-9999\",\n        \"email\": \"john.doe@example\",\n        \"cpf\": \"843.676.302-50\",\n        \"senha\": \"1234\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
+						"method": "GET",
+						"header": [],
 						"url": {
 							"raw": "http://localhost:8080/funcionariosPucTec",
 							"protocol": "http",
@@ -973,7 +1028,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"pessoa\": {\n        \"id\": 1,\n        \"nome\": \"John\",\n        \"sobrenome\": \"Smith\",\n        \"telefone\": \"+559987654-3210\",\n        \"email\": \"john.smith@example\",\n        \"cpf\": \"768.475.102-69\",\n        \"senha\": \"12345\"\n    }\n}",
+							"raw": "{\n    \"pessoaId\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1009,6 +1064,139 @@
 							"port": "8080",
 							"path": [
 								"funcionariosPucTec",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Funcionario Startup",
+			"item": [
+				{
+					"name": "POST Funcionario Startup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pessoaId\": 1,\n    \"startupId\": 1,\n    \"demandasId\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/funcionariosStartup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionariosStartup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Funcionarios Startup",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/funcionariosStartup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionariosStartup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Funcionario Startup 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/funcionariosStartup/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionariosStartup",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Funcionario Startup 1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pessoaId\": 2,\n    \"startupId\": 1,\n    \"demandasId\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/funcionariosStartup/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionariosStartup",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Funcionario Startup 1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/funcionariosStartup/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionariosStartup",
 								"1"
 							]
 						}

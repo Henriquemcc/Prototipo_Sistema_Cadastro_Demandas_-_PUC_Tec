@@ -43,4 +43,20 @@ Para o desenvolvimento deste sistema, foi desenvolvido um projeto de banco de da
 
 ## Implementação
 
-Para a implementação deste protótipo, foi utilizado o framework [Spring Boot](https://spring.io/) junto da linguagem de programação [Kotlin](https://kotlinlang.org/). E para o banco de dados, foi utilizado o [MySQL](https://www.mysql.com/). 
+Para a implementação deste protótipo, foi utilizado o framework [Spring Boot](https://spring.io/) junto da linguagem de programação [Kotlin](https://kotlinlang.org/). E para o banco de dados, foi utilizado o [MySQL](https://www.mysql.com/).
+
+## Como executar
+
+Para executar este programa, na pasta do projeto abra um terminal (ou prompt de comando) e digite o seguinte comando:
+
+No Terminal do Linux e Mac:
+
+```
+./gradlew bootRun
+```
+
+No Prompt de Comando, Terminal ou PowerShell do Windows:
+
+```
+gradlew bootRun
+```

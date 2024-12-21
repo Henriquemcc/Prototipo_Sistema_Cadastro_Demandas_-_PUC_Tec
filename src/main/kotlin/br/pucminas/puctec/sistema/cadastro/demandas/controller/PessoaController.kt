@@ -6,6 +6,11 @@ import br.pucminas.puctec.sistema.cadastro.demandas.dto.PessoaView
 import br.pucminas.puctec.sistema.cadastro.demandas.service.PessoaDtoService
 import jakarta.transaction.Transactional
 import jakarta.validation.Valid
+import org.hibernate.query.SortDirection
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.domain.Sort
+import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -18,7 +23,7 @@ class PessoaController(
 ) {
 
     @GetMapping
-    fun listar(): List<PessoaView> = pessoaDtoService.listar()
+    fun listar(@RequestParam(required = false) nome: String?, @RequestParam(required = false) sobrenome: String?, @PageableDefault(size = 128, sort = ["nome", "sobrenome"], direction = Sort.Direction.ASC) pageable: Pageable): Page<PessoaView> = pessoaDtoService.listar(nome, sobrenome, pageable)
 
     @GetMapping("/{idPessoa}")
     fun buscarPorId(@PathVariable idPessoa: Long): PessoaView = pessoaDtoService.buscarPorId(idPessoa)

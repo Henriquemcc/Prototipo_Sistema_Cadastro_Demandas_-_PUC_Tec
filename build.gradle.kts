@@ -29,6 +29,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.flywaydb:flyway-core:11.1.0")
+	implementation("org.flywaydb:flyway-mysql:11.1.0")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.testcontainers:mysql:1.20.4")
 	testImplementation("org.springframework.boot:spring-boot-testcontainers:3.3.4")

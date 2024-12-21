@@ -5,7 +5,10 @@ import br.pucminas.puctec.sistema.cadastro.demandas.dto.DemandaView
 import br.pucminas.puctec.sistema.cadastro.demandas.dto.NovaDemandaForm
 import br.pucminas.puctec.sistema.cadastro.demandas.service.DemandaDtoService
 import jakarta.transaction.Transactional
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.util.UriComponentsBuilder
 
 @RestController
 @RequestMapping("/demandas")
@@ -20,13 +23,18 @@ class DemandaController(
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody demanda: NovaDemandaForm): DemandaView = demandaDtoService.cadastrar(demanda)
+    fun cadastrar(@RequestBody demanda: NovaDemandaForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<DemandaView> {
+        val demandaCadastrada = demandaDtoService.cadastrar(demanda)
+        val uri = uriComponentsBuilder.path("/demandas/${demandaCadastrada.id}").build().toUri()
+        return ResponseEntity.created(uri).body(demandaCadastrada)
+    }
 
     @PutMapping("/{idDemanda}")
     @Transactional
-    fun atualizar(@RequestBody demanda: AtualizarDemandaForm, @PathVariable idDemanda: Long): DemandaView = demandaDtoService.atualizar(demanda, idDemanda)
+    fun atualizar(@RequestBody demanda: AtualizarDemandaForm, @PathVariable idDemanda: Long): ResponseEntity<DemandaView> = ResponseEntity.ok(demandaDtoService.atualizar(demanda, idDemanda))
 
     @DeleteMapping("/{idDemanda}")
     @Transactional
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deletar(@PathVariable idDemanda: Long) = demandaDtoService.deletar(idDemanda)
 }

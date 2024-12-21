@@ -7,7 +7,10 @@ import br.pucminas.puctec.sistema.cadastro.demandas.model.FuncionarioPucTec
 import br.pucminas.puctec.sistema.cadastro.demandas.service.FuncionarioPucTecDtoService
 import br.pucminas.puctec.sistema.cadastro.demandas.service.FuncionarioPucTecService
 import jakarta.transaction.Transactional
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.util.UriComponentsBuilder
 
 @RestController
 @RequestMapping("/funcionariosPucTec")
@@ -23,13 +26,18 @@ class FuncionarioPucTecController(
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody funcionarioPucTec: NovoFuncionarioPucTecForm): FuncionarioPucTecView = funcionarioPucTecDtoService.cadastrar(funcionarioPucTec)
+    fun cadastrar(@RequestBody funcionarioPucTec: NovoFuncionarioPucTecForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<FuncionarioPucTecView> {
+        val funcionarioCadastrado = funcionarioPucTecDtoService.cadastrar(funcionarioPucTec)
+        val uri = uriComponentsBuilder.path("/funcionariosPucTec/${funcionarioCadastrado.id}").build().toUri()
+        return ResponseEntity.created(uri).body(funcionarioCadastrado)
+    }
 
     @PutMapping("/{idFuncionarioPucTec}")
     @Transactional
-    fun atualizar(@RequestBody funcionarioPucTec: AtualizarFuncionarioPucTecForm, @PathVariable idFuncionarioPucTec: Long): FuncionarioPucTecView = funcionarioPucTecDtoService.atualizar(funcionarioPucTec, idFuncionarioPucTec)
+    fun atualizar(@RequestBody funcionarioPucTec: AtualizarFuncionarioPucTecForm, @PathVariable idFuncionarioPucTec: Long): ResponseEntity<FuncionarioPucTecView> = ResponseEntity.ok(funcionarioPucTecDtoService.atualizar(funcionarioPucTec, idFuncionarioPucTec))
 
     @DeleteMapping("/{idFuncionarioPucTec}")
     @Transactional
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deletar(@PathVariable idFuncionarioPucTec: Long) = funcionarioPucTecDtoService.deletar(idFuncionarioPucTec)
 }

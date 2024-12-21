@@ -7,7 +7,11 @@ import br.pucminas.puctec.sistema.cadastro.demandas.model.Aluno
 import br.pucminas.puctec.sistema.cadastro.demandas.service.AlunoDtoService
 import br.pucminas.puctec.sistema.cadastro.demandas.service.AlunoService
 import jakarta.transaction.Transactional
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.util.UriBuilder
+import org.springframework.web.util.UriComponentsBuilder
 
 @RestController
 @RequestMapping("/alunos")
@@ -22,13 +26,18 @@ class AlunoController(
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody aluno: NovoAlunoForm): AlunoView = alunoDtoService.cadastrar(aluno)
+    fun cadastrar(@RequestBody aluno: NovoAlunoForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<AlunoView> {
+        val alunoCadastrado = alunoDtoService.cadastrar(aluno)
+        val uri = uriComponentsBuilder.path("/alunos/${alunoCadastrado.id}").build().toUri()
+        return ResponseEntity.created(uri).body(alunoCadastrado)
+    }
 
     @PutMapping("/{idAluno}")
     @Transactional
-    fun atualizar(@RequestBody aluno: AtualizarAlunoForm, @PathVariable idAluno: Long): AlunoView = alunoDtoService.atualizar(aluno, idAluno)
+    fun atualizar(@RequestBody aluno: AtualizarAlunoForm, @PathVariable idAluno: Long): ResponseEntity<AlunoView> = ResponseEntity.ok(alunoDtoService.atualizar(aluno, idAluno))
 
     @DeleteMapping("/{idAluno}")
     @Transactional
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deletar(@PathVariable idAluno: Long) = alunoDtoService.deletar(idAluno)
 }

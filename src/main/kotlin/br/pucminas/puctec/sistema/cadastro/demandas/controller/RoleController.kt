@@ -7,7 +7,10 @@ import br.pucminas.puctec.sistema.cadastro.demandas.model.Role
 import br.pucminas.puctec.sistema.cadastro.demandas.service.RoleDtoService
 import br.pucminas.puctec.sistema.cadastro.demandas.service.RoleService
 import jakarta.transaction.Transactional
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.util.UriComponentsBuilder
 
 @RestController
 @RequestMapping("/roles")
@@ -23,13 +26,18 @@ class RoleController(
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody role: NovaRoleForm): RoleView = roleDtoService.cadastrar(role)
+    fun cadastrar(@RequestBody role: NovaRoleForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<RoleView> {
+        val roleCadastrada = roleDtoService.cadastrar(role)
+        val uri = uriComponentsBuilder.path("/roles/${roleCadastrada.id}").build().toUri()
+        return ResponseEntity.created(uri).body(roleCadastrada)
+    }
 
     @PutMapping("/{idRole}")
     @Transactional
-    fun atualizar(@RequestBody role: AtualizarRoleForm, @PathVariable idRole: Long): RoleView = roleDtoService.atualizar(role, idRole)
+    fun atualizar(@RequestBody role: AtualizarRoleForm, @PathVariable idRole: Long): ResponseEntity<RoleView> = ResponseEntity.ok(roleDtoService.atualizar(role, idRole))
 
     @DeleteMapping("/{idRole}")
     @Transactional
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deletar(@PathVariable idRole: Long) = roleDtoService.deletar(idRole)
 }

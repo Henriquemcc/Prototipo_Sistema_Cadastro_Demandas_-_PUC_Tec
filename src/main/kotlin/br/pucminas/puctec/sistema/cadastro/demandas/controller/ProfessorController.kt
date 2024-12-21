@@ -5,7 +5,10 @@ import br.pucminas.puctec.sistema.cadastro.demandas.dto.NovoProfessorForm
 import br.pucminas.puctec.sistema.cadastro.demandas.dto.ProfessorView
 import br.pucminas.puctec.sistema.cadastro.demandas.service.ProfessorDtoService
 import jakarta.transaction.Transactional
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.util.UriComponentsBuilder
 
 @RestController
 @RequestMapping("/professores")
@@ -21,13 +24,18 @@ class ProfessorController(
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody professor: NovoProfessorForm): ProfessorView = professorDtoService.cadastrar(professor)
+    fun cadastrar(@RequestBody professor: NovoProfessorForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<ProfessorView> {
+        val professorCadastrado = professorDtoService.cadastrar(professor)
+        val uri = uriComponentsBuilder.path("/professores/${professorCadastrado.id}").build().toUri()
+        return ResponseEntity.created(uri).body(professorCadastrado)
+    }
 
     @PutMapping("/{idProfessor}")
     @Transactional
-    fun atualizar(@RequestBody professor: AtualizarProfessorForm, @PathVariable idProfessor: Long): ProfessorView = professorDtoService.atualizar(professor, idProfessor)
+    fun atualizar(@RequestBody professor: AtualizarProfessorForm, @PathVariable idProfessor: Long): ResponseEntity<ProfessorView> = ResponseEntity.ok(professorDtoService.atualizar(professor, idProfessor))
 
     @DeleteMapping("/{idProfessor}")
     @Transactional
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deletar(@PathVariable idProfessor: Long) = professorDtoService.deletar(idProfessor)
 }

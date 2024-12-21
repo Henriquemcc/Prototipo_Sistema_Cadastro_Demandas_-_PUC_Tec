@@ -7,6 +7,7 @@ import br.pucminas.puctec.sistema.cadastro.demandas.model.Role
 import br.pucminas.puctec.sistema.cadastro.demandas.service.RoleDtoService
 import br.pucminas.puctec.sistema.cadastro.demandas.service.RoleService
 import jakarta.transaction.Transactional
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -26,7 +27,7 @@ class RoleController(
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody role: NovaRoleForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<RoleView> {
+    fun cadastrar(@RequestBody @Valid role: NovaRoleForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<RoleView> {
         val roleCadastrada = roleDtoService.cadastrar(role)
         val uri = uriComponentsBuilder.path("/roles/${roleCadastrada.id}").build().toUri()
         return ResponseEntity.created(uri).body(roleCadastrada)
@@ -34,7 +35,7 @@ class RoleController(
 
     @PutMapping("/{idRole}")
     @Transactional
-    fun atualizar(@RequestBody role: AtualizarRoleForm, @PathVariable idRole: Long): ResponseEntity<RoleView> = ResponseEntity.ok(roleDtoService.atualizar(role, idRole))
+    fun atualizar(@RequestBody @Valid role: AtualizarRoleForm, @PathVariable idRole: Long): ResponseEntity<RoleView> = ResponseEntity.ok(roleDtoService.atualizar(role, idRole))
 
     @DeleteMapping("/{idRole}")
     @Transactional

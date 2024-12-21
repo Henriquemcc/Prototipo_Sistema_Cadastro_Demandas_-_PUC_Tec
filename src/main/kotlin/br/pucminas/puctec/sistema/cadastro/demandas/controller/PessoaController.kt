@@ -5,6 +5,7 @@ import br.pucminas.puctec.sistema.cadastro.demandas.dto.NovaPessoaForm
 import br.pucminas.puctec.sistema.cadastro.demandas.dto.PessoaView
 import br.pucminas.puctec.sistema.cadastro.demandas.service.PessoaDtoService
 import jakarta.transaction.Transactional
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -24,7 +25,7 @@ class PessoaController(
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody pessoa: NovaPessoaForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<PessoaView> {
+    fun cadastrar(@RequestBody @Valid pessoa: NovaPessoaForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<PessoaView> {
         val pessoaCadastrada = pessoaDtoService.cadastrar(pessoa)
         val uri = uriComponentsBuilder.path("/pessoas/${pessoaCadastrada.id}").build().toUri()
         return ResponseEntity.created(uri).body(pessoaCadastrada)
@@ -32,7 +33,7 @@ class PessoaController(
 
     @PutMapping("/{idPessoa}")
     @Transactional
-    fun atualizar(@RequestBody pessoa: AtualizarPessoaForm, @PathVariable idPessoa: Long): ResponseEntity<PessoaView> = ResponseEntity.ok(pessoaDtoService.atualizar(pessoa, idPessoa))
+    fun atualizar(@RequestBody @Valid pessoa: AtualizarPessoaForm, @PathVariable idPessoa: Long): ResponseEntity<PessoaView> = ResponseEntity.ok(pessoaDtoService.atualizar(pessoa, idPessoa))
 
     @DeleteMapping("/{idPessoa}")
     @Transactional

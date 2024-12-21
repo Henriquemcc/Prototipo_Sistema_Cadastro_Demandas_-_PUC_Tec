@@ -7,6 +7,7 @@ import br.pucminas.puctec.sistema.cadastro.demandas.model.Aluno
 import br.pucminas.puctec.sistema.cadastro.demandas.service.AlunoDtoService
 import br.pucminas.puctec.sistema.cadastro.demandas.service.AlunoService
 import jakarta.transaction.Transactional
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -26,7 +27,7 @@ class AlunoController(
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody aluno: NovoAlunoForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<AlunoView> {
+    fun cadastrar(@RequestBody @Valid aluno: NovoAlunoForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<AlunoView> {
         val alunoCadastrado = alunoDtoService.cadastrar(aluno)
         val uri = uriComponentsBuilder.path("/alunos/${alunoCadastrado.id}").build().toUri()
         return ResponseEntity.created(uri).body(alunoCadastrado)
@@ -34,7 +35,7 @@ class AlunoController(
 
     @PutMapping("/{idAluno}")
     @Transactional
-    fun atualizar(@RequestBody aluno: AtualizarAlunoForm, @PathVariable idAluno: Long): ResponseEntity<AlunoView> = ResponseEntity.ok(alunoDtoService.atualizar(aluno, idAluno))
+    fun atualizar(@RequestBody @Valid aluno: AtualizarAlunoForm, @PathVariable idAluno: Long): ResponseEntity<AlunoView> = ResponseEntity.ok(alunoDtoService.atualizar(aluno, idAluno))
 
     @DeleteMapping("/{idAluno}")
     @Transactional

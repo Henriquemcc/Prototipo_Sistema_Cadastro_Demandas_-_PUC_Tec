@@ -5,6 +5,7 @@ import br.pucminas.puctec.sistema.cadastro.demandas.dto.NovaStartupForm
 import br.pucminas.puctec.sistema.cadastro.demandas.dto.StartupView
 import br.pucminas.puctec.sistema.cadastro.demandas.service.StartupDtoService
 import jakarta.transaction.Transactional
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -23,7 +24,7 @@ class StartupController(
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody startup: NovaStartupForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<StartupView> {
+    fun cadastrar(@RequestBody @Valid startup: NovaStartupForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<StartupView> {
         val startupCadastrada = startupDtoService.cadastrar(startup)
         val uri = uriComponentsBuilder.path("/startups/${startupCadastrada.id}").build().toUri()
         return ResponseEntity.created(uri).body(startupCadastrada)
@@ -31,7 +32,7 @@ class StartupController(
 
     @PutMapping("/{idStartup}")
     @Transactional
-    fun atualizar(@RequestBody startup: AtualizarStartupForm, @PathVariable idStartup: Long): ResponseEntity<StartupView> = ResponseEntity.ok(startupDtoService.atualizar(startup, idStartup))
+    fun atualizar(@RequestBody @Valid startup: AtualizarStartupForm, @PathVariable idStartup: Long): ResponseEntity<StartupView> = ResponseEntity.ok(startupDtoService.atualizar(startup, idStartup))
 
     @DeleteMapping("/{idStartup}")
     @Transactional

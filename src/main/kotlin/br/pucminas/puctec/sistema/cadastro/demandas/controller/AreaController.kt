@@ -5,6 +5,7 @@ import br.pucminas.puctec.sistema.cadastro.demandas.dto.AtualizarAreaForm
 import br.pucminas.puctec.sistema.cadastro.demandas.dto.NovaAreaForm
 import br.pucminas.puctec.sistema.cadastro.demandas.service.AreaDtoService
 import jakarta.transaction.Transactional
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -23,7 +24,7 @@ class AreaController(
 
     @PostMapping
     @Transactional
-    fun cadastrar(@RequestBody area: NovaAreaForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<AreaView> {
+    fun cadastrar(@RequestBody @Valid area: NovaAreaForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<AreaView> {
         val areaCadastrada = areaDtoService.cadastrar(area)
         val uri = uriComponentsBuilder.path("/areas/${areaCadastrada.id}").build().toUri()
         return ResponseEntity.created(uri).body(areaCadastrada)
@@ -31,7 +32,7 @@ class AreaController(
 
     @PutMapping("/{idArea}")
     @Transactional
-    fun atualizar(@RequestBody area: AtualizarAreaForm, @PathVariable idArea: Long): ResponseEntity<AreaView> = ResponseEntity.ok(areaDtoService.atualizar(area, idArea))
+    fun atualizar(@RequestBody @Valid area: AtualizarAreaForm, @PathVariable idArea: Long): ResponseEntity<AreaView> = ResponseEntity.ok(areaDtoService.atualizar(area, idArea))
 
     @DeleteMapping("/{idArea}")
     @Transactional

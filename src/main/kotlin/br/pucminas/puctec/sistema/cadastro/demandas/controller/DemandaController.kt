@@ -6,6 +6,8 @@ import br.pucminas.puctec.sistema.cadastro.demandas.dto.NovaDemandaForm
 import br.pucminas.puctec.sistema.cadastro.demandas.service.DemandaDtoService
 import jakarta.transaction.Transactional
 import jakarta.validation.Valid
+import org.springframework.cache.annotation.CacheEvict
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -17,6 +19,7 @@ class DemandaController(
     val demandaDtoService: DemandaDtoService
 ) {
     @GetMapping
+    @Cacheable("demandas")
     fun listar(): List<DemandaView> = demandaDtoService.listar()
 
     @GetMapping("/{idDemanda}")
@@ -24,6 +27,7 @@ class DemandaController(
 
     @PostMapping
     @Transactional
+    @CacheEvict(value = ["demandas"], allEntries = true)
     fun cadastrar(@RequestBody @Valid demanda: NovaDemandaForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<DemandaView> {
         val demandaCadastrada = demandaDtoService.cadastrar(demanda)
         val uri = uriComponentsBuilder.path("/demandas/${demandaCadastrada.id}").build().toUri()
@@ -32,10 +36,12 @@ class DemandaController(
 
     @PutMapping("/{idDemanda}")
     @Transactional
+    @CacheEvict(value = ["demandas"], allEntries = true)
     fun atualizar(@RequestBody @Valid demanda: AtualizarDemandaForm, @PathVariable idDemanda: Long): ResponseEntity<DemandaView> = ResponseEntity.ok(demandaDtoService.atualizar(demanda, idDemanda))
 
     @DeleteMapping("/{idDemanda}")
     @Transactional
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @CacheEvict(value = ["demandas"], allEntries = true)
     fun deletar(@PathVariable idDemanda: Long) = demandaDtoService.deletar(idDemanda)
 }

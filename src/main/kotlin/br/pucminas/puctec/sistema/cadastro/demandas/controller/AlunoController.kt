@@ -7,7 +7,9 @@ import br.pucminas.puctec.sistema.cadastro.demandas.model.Aluno
 import br.pucminas.puctec.sistema.cadastro.demandas.service.AlunoDtoService
 import br.pucminas.puctec.sistema.cadastro.demandas.service.AlunoService
 import jakarta.transaction.Transactional
+import org.springframework.cache.annotation.Cacheable
 import jakarta.validation.Valid
+import org.springframework.cache.annotation.CacheEvict
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -20,6 +22,7 @@ class AlunoController(
     private val alunoDtoService: AlunoDtoService
 ) {
     @GetMapping
+    @Cacheable("alunos")
     fun listar(): List<AlunoView> = alunoDtoService.listar()
 
     @GetMapping("/{idAluno}")
@@ -27,6 +30,7 @@ class AlunoController(
 
     @PostMapping
     @Transactional
+    @CacheEvict(value = ["alunos"], allEntries = true)
     fun cadastrar(@RequestBody @Valid aluno: NovoAlunoForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<AlunoView> {
         val alunoCadastrado = alunoDtoService.cadastrar(aluno)
         val uri = uriComponentsBuilder.path("/alunos/${alunoCadastrado.id}").build().toUri()
@@ -35,10 +39,12 @@ class AlunoController(
 
     @PutMapping("/{idAluno}")
     @Transactional
+    @CacheEvict(value = ["alunos"], allEntries = true)
     fun atualizar(@RequestBody @Valid aluno: AtualizarAlunoForm, @PathVariable idAluno: Long): ResponseEntity<AlunoView> = ResponseEntity.ok(alunoDtoService.atualizar(aluno, idAluno))
 
     @DeleteMapping("/{idAluno}")
     @Transactional
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @CacheEvict(value = ["alunos"], allEntries = true)
     fun deletar(@PathVariable idAluno: Long) = alunoDtoService.deletar(idAluno)
 }

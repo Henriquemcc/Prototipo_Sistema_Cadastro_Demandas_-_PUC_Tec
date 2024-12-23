@@ -7,6 +7,8 @@ import br.pucminas.puctec.sistema.cadastro.demandas.service.PessoaDtoService
 import jakarta.transaction.Transactional
 import jakarta.validation.Valid
 import org.hibernate.query.SortDirection
+import org.springframework.cache.annotation.CacheEvict
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
@@ -23,6 +25,7 @@ class PessoaController(
 ) {
 
     @GetMapping
+    @Cacheable("pessoas")
     fun listar(@RequestParam(required = false) nome: String?, @RequestParam(required = false) sobrenome: String?, @PageableDefault(size = 128, sort = ["nome", "sobrenome"], direction = Sort.Direction.ASC) pageable: Pageable): Page<PessoaView> = pessoaDtoService.listar(nome, sobrenome, pageable)
 
     @GetMapping("/{idPessoa}")
@@ -30,6 +33,7 @@ class PessoaController(
 
     @PostMapping
     @Transactional
+    @CacheEvict(value = ["pessoas"], allEntries = true)
     fun cadastrar(@RequestBody @Valid pessoa: NovaPessoaForm, uriComponentsBuilder: UriComponentsBuilder): ResponseEntity<PessoaView> {
         val pessoaCadastrada = pessoaDtoService.cadastrar(pessoa)
         val uri = uriComponentsBuilder.path("/pessoas/${pessoaCadastrada.id}").build().toUri()
@@ -38,10 +42,12 @@ class PessoaController(
 
     @PutMapping("/{idPessoa}")
     @Transactional
+    @CacheEvict(value = ["pessoas"], allEntries = true)
     fun atualizar(@RequestBody @Valid pessoa: AtualizarPessoaForm, @PathVariable idPessoa: Long): ResponseEntity<PessoaView> = ResponseEntity.ok(pessoaDtoService.atualizar(pessoa, idPessoa))
 
     @DeleteMapping("/{idPessoa}")
     @Transactional
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @CacheEvict(value = ["pessoas"], allEntries = true)
     fun deletar(@PathVariable idPessoa: Long) = pessoaDtoService.deletar(idPessoa)
 }

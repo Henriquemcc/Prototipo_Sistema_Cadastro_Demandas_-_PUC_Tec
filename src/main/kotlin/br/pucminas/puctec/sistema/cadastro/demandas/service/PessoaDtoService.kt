@@ -6,6 +6,8 @@ import br.pucminas.puctec.sistema.cadastro.demandas.dto.PessoaView
 import br.pucminas.puctec.sistema.cadastro.demandas.mapper.AtualizarPessoaFormMapper
 import br.pucminas.puctec.sistema.cadastro.demandas.mapper.NovaPessoaFormMapper
 import br.pucminas.puctec.sistema.cadastro.demandas.mapper.PessoaViewMapper
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 
 @Service
@@ -16,7 +18,7 @@ class PessoaDtoService (
     private val atualizarPessoaFormMapper: AtualizarPessoaFormMapper
 ) {
 
-    fun listar(): List<PessoaView> = pessoaService.listar().map { pessoaViewMapper.map(it) }
+    fun listar(nome: String? = null, sobrenome: String? = null, pageable: Pageable): Page<PessoaView> = pessoaService.listar(nome, sobrenome, pageable).map { pessoaViewMapper.map(it) }
 
     fun buscarPorId(idPessoa: Long): PessoaView = pessoaViewMapper.map(pessoaService.buscarPorId(idPessoa))
 

@@ -4,5 +4,5 @@ create table aluno (
         matricula varchar(10),
         pessoa_id bigint,
         primary key (id),
-        foreign key pessoa_id references pessoa(id)
+        foreign key (pessoa_id) references pessoa(id)
 );
